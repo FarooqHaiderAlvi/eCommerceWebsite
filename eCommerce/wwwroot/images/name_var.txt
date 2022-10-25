@@ -1,0 +1,8 @@
+ls::ladies slider
+ms:::male slider
+ws::watch slider
+
+lc::ladies cart
+mc::male cart
+wc::watch cart
+

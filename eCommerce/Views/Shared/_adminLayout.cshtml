@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @* bootstrap related css *@
+    <link rel="stylesheet" href="~/BootstrapCss/bootstrap.min.css">
+    <link rel="stylesheet" href="~/jqueryPluginCss/zoomslider.css" />
+    <link href="http://yoursite.com/themify-icons.css" rel="stylesheet">
+    <script type="text/javascript" src="~/jqueryPlugins/modernizr-2.6.2.min.js"></script>
+    <link rel="stylesheet" href="~/themify-icons.css" />
+    <link rel="stylesheet" href="~/css/index.css">
+
+</head>
+<body>
+
+
+    @* header starts here  *@
+
+    <section id="header">
+
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="~/images/logo.png" alt="" class="img-fluid">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+
+                    <span class="fa fa-bars"></span>
+
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul class="navbar-nav ms-auto text-center">
+                        <li class="nav-item">
+                            <a class="nav-link active " aria-current="page" asp-controller="Home" asp-action="homePage">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link dropbtn" href="#">Products</a>
+                                <div class="dropdown-content">
+                                    <a asp-controller="Admin" asp-action="viewAllProducts">View All Products</a>
+                                    <a asp-controller="Ladies" asp-action="ladiesPage">Add a Product</a>
+
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="dropdown">
+                                <a class="nav-link dropbtn" href="#">Users</a>
+                                <div class="dropdown-content">
+                                    <a asp-controller="Admin" asp-action="viewAllUsers">View All Users</a>
+                                    <a asp-controller="Ladies" asp-action="ladiesPage">Add a User</a>
+                                                        
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-controller="Home" asp-action="loginPage">Log out</a>
+                        </li>  
+                        <li class="nav-item">
+                        <input id="search" type="search" placeholder="Search" />
+                        </li>                    
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    @* header ends here *@
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+    @* footer here *@
+    <partial name="_footerPartial" />
+
+
+    <script src="~/js/bootstrap.bundle.js"></script>
+    <script src="~/js/jquery-3.6.0.min.js"></script>
+    <script src="~/jqueryPlugins/jquery.scrollUp.js"></script>
+    <script src="~/jqueryPlugins/modernizr-2.6.2.min.js"></script>
+    <script src="~/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="~/jqueryPlugins/jquery.zoomslider.min.js"></script>
+    <script src="~/js/price.js"></script>
+    <script>
+
+
+        $(document).ready(function () {
+
+            $(function () {
+                $.scrollUp();
+            });
+            $("#search").click(function () {
+                $.ajax('/')
+            })
+
+        });
+    </script>
+
+
+
+
+</body>
+</html>

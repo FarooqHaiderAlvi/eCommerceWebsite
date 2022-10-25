@@ -1,0 +1,59 @@
+﻿@model eCommerce.Models.user;
+@{
+    Layout = "~/Views/Shared/_sign.cshtml";
+}
+
+
+<div class=" row mt-3  justify-content-center">
+    <form action="/Admin/loginPage" method="post" class=" col-md-5 col-8 border shadow  " style="height: 500px;">
+        <p class="text-center text-dark h3 mb-3">Log In</p>
+        <p class="text-center text-dark h3 mb-3">Admin</p>
+
+        <div class="row">
+            <div class="col-lg-8  offset-1">
+
+                <span class="fa fa-user"></span>
+
+                <input class="col-7 col-sm-8 mx-2" asp-for="Username" placeholder="Username" />
+
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg-8 offset-1">
+
+                <span class="fa fa-key"></span>
+                <input class="col-7  col-sm-8 mx-2" asp-for="Password" placeholder="password" />
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-6">
+                <p style="color:red;">@ViewBag.wrong</p>
+
+            </div>
+        </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-6">
+                <input type="submit" value="Log In" class="col-12" />
+
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-evenly">
+                <span class="fa fa-facebook"></span>
+                <span class="fa fa-linkedin"></span>
+                <span class="fa fa-youtube"></span>
+                <span class="fa fa-google"></span>
+            </div>
+        </div>
+
+        @*<p class="text-center mt-4">
+            Don't have an account? <a asp-controller="Admin" asp-action="signPage" class="mx-1" style="cursor: pointer;">
+                Sign
+                Up
+            </a>
+        </p>*@
+
+    </form>
+</div>

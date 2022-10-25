@@ -1,0 +1,62 @@
+﻿@model eCommerce.Models.user;
+@{
+    Layout = "~/Views/Shared/_sign.cshtml";
+}
+
+<div class=" row mt-4  justify-content-center">
+    <form action="/Admin/signPage" method="post" enctype="multipart/form-data" class=" col-md-5 col-8 border shadow" style="height: 500px;">
+        <p class="text-center text-dark h3 mt-2 mb-5">Sign Up</p>
+        <p class="text-center text-dark h3 mt-2 mb-5">Admin</p>
+
+        <div class="row">
+            <div class="col-lg-8  offset-1">
+
+                <span class="fa fa-user"></span>
+
+                <input class="col-7 col-sm-8 mx-2 input" asp-for="Username" placeholder="Username" />
+                <br />
+                <span class="offset-2" asp-validation-for="Username"></span>
+
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-lg-8 offset-1">
+
+                <span class="fa fa-key"></span>
+                <input class="col-7  col-sm-8 mx-2 input" asp-for="Password" placeholder="password" />
+                <br />
+                <span class="offset-2" asp-validation-for="Password"></span>
+            </div>
+        </div>
+       
+      
+        <div class="row justify-content-center mt-4">
+            <div class="col-6">
+                <input type="submit" value="Sign Up" class="col-12" />
+
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-evenly">
+                <span class="fa fa-facebook"></span>
+                <span class="fa fa-linkedin"></span>
+                <span class="fa fa-youtube"></span>
+                <span class="fa fa-google"></span>
+            </div>
+        </div>
+
+        <p class="text-center mt-4 mb-5">
+            Already have an account? <a asp-action="loginPage" asp-controller="Admin" class="mx-1" style="cursor: pointer;">
+                Sign
+                in
+            </a>
+        </p>
+
+    </form>
+</div>
+
+<script>
+
+
+</script>

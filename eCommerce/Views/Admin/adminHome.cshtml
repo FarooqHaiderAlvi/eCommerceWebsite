@@ -1,0 +1,62 @@
+﻿@model eCommerce.Models.product;
+
+@{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="container" style="margin-top: 100px;">
+    <div class="row">
+        <div class="col d-flex justify-content-center">
+            <form enctype="multipart/form-data" action="/Admin/adminHome" method="post" class=" col-md-5 col-8 border shadow  " style="height: 400px;">
+
+                <p class="text-center text-dark h3 mb-5">Add Product</p>
+
+                <div class="row">
+                    <div class="col-lg-8  offset-1">
+
+
+                        <span class="fa fa-tag text-danger" style="font-size:20px"></span>
+                        <input class="col-7 col-sm-8 mx-2" asp-for="name" placeholder="Add Name" />
+                        <span class="offset-2 " asp-validation-for="name"></span>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-lg-8 offset-1">
+
+                        <span class="text-danger fa fa-money" style="font-size:20px"></span>
+                        <input class="col-7  col-sm-8 mx-2" asp-for="price" placeholder="Price" />
+                        <span class="offset-2 " asp-validation-for="price"></span>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-lg-8 offset-1">
+                        <span class="fa fa-info-circle text-danger" style="font-size:24px"></span>
+
+                        <textarea class="col-7  col-sm-8 mx-2" asp-for="description" placeholder="Product Description"></textarea>
+                        <span class="offset-2 " asp-validation-for="description"></span>
+                    </div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-lg-8 offset-1">
+                        <input type="file" name="i" />
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center mt-4">
+                    <div class="col-6 d-flex justify-content-evenly">
+                        <input type="submit" class="button col-12" value="Add Product" />
+
+
+                    </div>
+                </div>
+
+
+
+
+            </form>
+        </div>
+    </div>
+</div>

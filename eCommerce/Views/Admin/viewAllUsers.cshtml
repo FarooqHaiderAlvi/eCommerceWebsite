@@ -1,0 +1,70 @@
+﻿@model List<eCommerce.Models.user>
+@{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<link href="~/css/product.css" rel="stylesheet" />
+
+<div class="container border allProduct">
+    <div class="row bg-dark">
+        <div class="col-1 border  d-flex justify-content-center align-items-center">
+            <p class="h5 text-center text-white">#</p>
+        </div>
+        <div class="col-2 border text-wrap d-flex justify-content-center align-items-center ">
+            <p class="h5 text-white">User Name</p>
+        </div>
+        <div class="col-2 border text-wrap d-flex justify-content-center align-items-center bg">
+            <p class="h5 text-break text-wrap text-white">Password</p>
+        </div>
+        <div class="col-3 text-wrap border d-flex justify-content-center align-items-center text-white">
+            <p class="h5 text-break text-wrap text-white">Gmail</p>
+        </div>
+        <div class="col-2 border d-flex justify-content-center align-items-center">
+            <p class="h5 text-break text-wrap text-white">Profile</p>
+        </div>
+
+        <div class="col-2 border d-flex justify-content-center align-items-center">
+            <p class="h5 text-break text-wrap text-white">Update/Delete</p>
+        </div>
+    </div>
+
+    @{ int count = 1;}
+
+    @foreach (var item in ViewBag.k)
+    {
+
+<div class="row"> 
+    <div class="col-1 border d-flex justify-content-center align-items-center">
+        <p>@count</p>
+    </div>
+    <div class="col-2 border text-wrap d-flex justify-content-center align-items-center bg-light">
+        <p class="text-break text-wrap">@item.Username</p>
+    </div>
+    <div class="col-2 border text-wrap d-flex justify-content-center align-items-center bg">
+        <p class="text-break text-wrap">@item.Password</p>
+    </div>
+    <div class="col-3 text-wrap border d-flex justify-content-center align-items-center bg-light">
+        <p class="text-break text-wrap">@item.Email</p>
+    </div>
+    <div class="col-2 border d-flex justify-content-center align-items-center">
+        <img src="@("~/Uploads/" +item.imgPath)" class="img-fluid" asp-append-version="true" style="width:5rem;height: 6rem; " />
+    </div>
+
+    <div class="col-2  align-items-center my-auto">
+
+        <div class="row align-items-center justify-content-center">
+            <div class="col-lg-5 col-8 d-flex justify-content-center">
+                <a class="btn btn-outline-primary" asp-action="updateUser" asp-controller="Admin" asp-route-id="@item.id">Update</a>
+            </div>
+            <div class="col-lg-5 col-8 d-flex justify-content-center">
+                <a class="btn btn-outline-danger" asp-action="deleteUser" asp-controller="Admin" asp-route-id="@item.id">Delete</a>
+            </div>
+        </div>
+      
+
+    </div>
+    @{ count++;}
+   </div>
+
+    }
+</div>

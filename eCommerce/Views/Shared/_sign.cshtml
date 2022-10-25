@@ -1,0 +1,34 @@
+﻿<html>
+
+<head>
+
+    <script src="~/js/bootstrap.bundle.js"></script>
+    <script src="~/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/BootstrapCss/bootstrap.min.css" />
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+
+<body>
+    <img src="~/images/login.jpg" class="img-fluid" style="height: 120vh;width:100%">
+    <div class="container-fluid position-absolute top-0 bg-light">
+        <div class="row justify-content-end">
+            <div class="col-auto">
+                <a  class="btn btn-outline-danger text-uppercase" asp-controller="Home" asp-action="signPage">User</a>
+            </div>
+            <div class="col-auto">
+                <a  class="btn mx-3 btn-outline-danger text-uppercase" asp-controller="Admin" asp-action="loginPage">Admin</a>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid  position-absolute top-0 my-5">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                <img src="~/images/logo.png" class="img-fluid" alt="">
+            </div>
+        </div>
+
+        <div>@RenderBody()</div>
+    </div>
+</body>
+</html>

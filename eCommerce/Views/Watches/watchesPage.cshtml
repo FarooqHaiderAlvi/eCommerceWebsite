@@ -1,0 +1,172 @@
+﻿@model List<eCommerce.Models.product>;
+@{
+    Layout = "~/Views/Shared/_homeLayout.cshtml";
+}
+
+
+@* zoom slider start *@
+<div id="demo-1" data-zs-src='@Url.Content("~/images/watch/ws-1.jpg")'>
+    
+        <div class="demo-inner-content">
+
+            <h1 class="mt-5"><span>Value</span> <span>Your Time</span></h1>
+
+        </div>
+    </div>
+
+
+    @* zoom slider end  *@
+
+
+
+
+
+
+
+
+    @*  products start *@
+<section id="products" class="products">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="headline text-center mb-5">
+                    <h2>Featured Products</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in ViewBag.k)
+            {
+                <div class="col-sm-6 col-lg-4 mb-3">
+                    @*<a href="#" class="d-block text-center mb-4">*@
+                    <div class="product-list">
+                        <div class="product-image position-relative">
+                            <span class="Sale">Sale</span>
+                            <img src="@("~/productImages/" +item.imgPath)" asp-append-version="true" class="img-fluid product-image-first" alt="">
+
+                        </div>
+                        <div class="product-name pt-3">
+                            <h3 class="text-capitalize text-center">@item.name</h3>
+                            <p class="mb-0 amount text-center"><span>$</span>@item.price<del>$599</del></p>
+                            <div class="py-1">
+                                <span class="ti-star active text-center"></span>
+                                <span class="ti-star active text-center"></span>
+                                <span class="ti-star active text-center"></span>
+                                <span class="ti-star text-center"></span>
+                                <span class="ti-star text-center"></span>
+
+                            </div>
+                            <div class="row">
+                                <div class="col d-flex justify-content-center">
+                                    <a asp-action="showProduct" asp-controller="Home" asp-route-id="@item.id" class="btn btn-outline-danger text-uppercase mt-4">Shop Now</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    @*</a>*@
+                </div>
+
+            }
+        </div>
+
+
+
+
+    </div>
+
+</section>
+
+
+    @*  description of product start *@
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center h2 mt-5">Limited time Offer</div>
+        </div>
+    </div>
+
+    <div class="container-fluid   offers pt-2">
+        <div class="row justify-content-lg-evenly">
+            @foreach (var item in ViewBag.l)
+            {
+                <div class="col-sm-6 col-12  pb-3 border shadow   order-2 order-sm-1">
+                    <div class="row justify-content-center">
+                        <div class="col-auto  h3">Product Description</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto h4">Tag: <span class="text-danger">@item.name</span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-auto">
+                            Detail:
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 offset-1 overflow-hidden">
+                            @item.description
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 d-flex justify-content-center">
+                            <button type="button"
+                                    class="btn btn-outline-danger text-white bg-danger text-uppercase mt-2">
+                                Make Your
+                                Choice
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-evenly">
+                        <div class=" product-name pt-3">
+                            <h3 class="text-capitalize text-center"> @item.name</h3>
+                            <p class="mb-0 amount text-danger text-center">$<span id="unit_price">499</span>  <del>$599</del></p>
+                            <div class="py-1 d-flex justify-content-center">
+                                <span class="ti-star active"></span>
+                                <span class="ti-star active"></span>
+                                <span class="ti-star active"></span>
+                                <span class="ti-star"></span>
+                                <span class="ti-star"></span>
+
+                            </div>
+
+
+
+
+                            <div class="row justify-content-center">
+                                <div class="col-auto">
+                                    <a asp-action="showProduct" asp-controller="Home" asp-route-id="@item.id" class="btn btn-outline-danger text-uppercase mt-4">Shop Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-12 col-sm-6 order-1 order-sm-2 shadow col-lg-3 mb-lg-0 mb-4">
+                    <a href="#">
+                        <div class="offer-box text-center position-relative">
+                            <div class="offer-inner">
+                                <div class="offer-image position-relative overflow-hidden">
+                                    <img src="@("~/productImages/" +item.imgPath)" asp-append-version="true" style="height: 25rem;" class="img-fluid allsides"
+                                         alt="img">
+                                    <img src="@("~/productImages/" +item.imgPath)" asp-append-version="true" style="width:3rem;height: 3rem; margin-top: 1rem;"
+                                         class="img-fluid  allsides" alt="img">
+                                    <div class="offer-overlay"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+
+        </div>
+    </div>
+
+
+    @* description of product end *@

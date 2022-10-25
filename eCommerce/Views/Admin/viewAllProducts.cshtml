@@ -1,0 +1,76 @@
+﻿@model List<eCommerce.Models.product>
+@{
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+    <div class="container border allProduct" style="margin-top:90px";>
+        <div class="row bg-dark">
+            <div class="col-1 ">
+                <p class="border-5 h4 text-wrap text-white text-center">#</p>
+            </div>
+            <div class="col-2 ">                    
+                <p class="border-5 h4 text-wrap text-white text-center">Name</p>
+            </div>
+            <div class="col-3"> 
+                <p class="border-5 h4 text-wrap text-white text-center">Description</p>
+            </div>
+            <div class="col-1 ">
+                <p class="border-5 h4 text-wrap text-white text-center">Price</p>
+            </div>
+            <div class="col-2 ">
+                <p class="border-5 h4 text-wrap text-white text-center">Product</p>
+            </div>
+            <div class=" col-auto col-md-3 ">
+                <p class="border-5 h4 text-wrap text-white text-center">Update/Delete</p>
+            </div>
+        </div>
+        @{ int count = 1;}
+
+        @foreach (var item in ViewBag.k)
+        {
+
+            <div class="row">
+                <div class="col-1 border d-flex justify-content-center align-items-center">
+                    <p>@count</p>
+                </div>
+                <div class="col-2 border d-flex justify-content-center align-items-center bg-light">
+                    <p>@item.name</p>
+                </div>
+                <div class="col-3 border d-flex justify-content-center align-items-center bg">
+                    <p class="text-break text-wrap">@item.description</p>
+                </div>
+                <div class="col-1 border d-flex justify-content-center align-items-center bg-light">
+                    <p class="h5">@item.price</p>
+                </div>
+                <div class="col-2 border d-flex justify-content-center align-items-center">
+                    <img src="@("~/productImages/" +item.imgPath)" class="img-fluid" asp-append-version="true" style="width:5rem;height: 6rem; " />
+                </div>
+                <div class="col-3 border d-flex justify-content-evenly align-items-center">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-lg-5 col-8 d-flex justify-content-center">
+                            <a class="btn btn-outline-primary" >Update</a>
+                        </div>
+                        <div class="col-lg-5 col-8 d-flex justify-content-center">
+                            <a class="btn remove btn-outline-danger" asp-action="deleteProduct" asp-controller="Admin" asp-route-id="@item.id">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                @{ count++;}
+            </div>
+
+        }
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).on('click', '.remove', function () {
+                $(this).parent().parent().remove();
+            });
+
+        });
+    </script>
